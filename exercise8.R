@@ -1,4 +1,6 @@
 rm(list = ls())
+
+#Game score plot
 game <- read.table("UWvMSU_1-22-13.txt",, header = TRUE, sep = "\t", stringsAsFactors = FALSE)
 scoreMSU <- 0
 scoreUW <- 0
@@ -16,3 +18,24 @@ for(i in 1:len){
 }
 plot(gm.df$Time, gm.df$UW, type = "l", xlab = "Time", ylab = "Score", col = "red")
 lines(gm.df$Time, gm.df$MSU, col = "green")
+
+
+#GUESSING GAME 
+code = sample(100, 1)
+i = 0
+guess = -1
+while(i < 10 & guess!=code){
+  guess = readline(prompt = "guess a number between 1 and 100:")
+  if(guess > code){
+    print("lower")
+    i = i+1
+  }
+  else if(guess < code){
+    print("higher")
+    i = i+1
+  }
+  else if (guess==code){
+    print("You WIN!")
+  }
+}
+
